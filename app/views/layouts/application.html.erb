@@ -6,9 +6,11 @@
     <%= csrf_meta_tags %>
   </head>
   <body>
+    <h2>TodoApp -> Angular + Rails</h2>
     {{1+2}}
     <%= yield %>
     <script src="/javascripts/angular.min.js"></script>
+    <script src="/javascripts/bootstrap.min.js"></script>
     <%= javascript_include_tag "application" %>
   </body>
 </html>
