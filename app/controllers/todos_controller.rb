@@ -1,10 +1,10 @@
 class TodosController < ApplicationController
-  respond_to :json
+  respond_to :json, :html
   before_filter :find_todo, except: [:index, :create, :edit]
 
   def index
     @todos = Todo.all
-    respond_with @todos
+    #respond_with @todos
   end
 
   def show
