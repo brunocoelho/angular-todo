@@ -1,3 +1,5 @@
+Todo.destroy_all
+
 Todo.create([
   { description: 'First Todo',  done: false },
   { description: 'Second Todo', done: false },
