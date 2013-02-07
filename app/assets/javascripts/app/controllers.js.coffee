@@ -12,14 +12,16 @@
 
     $scope.addTodo = ->
         $scope.newTodo.done = false
-        Todo.save($scope.newTodo)
+        todo = new Todo($scope.newTodo)
+        todo.$save()
         # I need to know if the object was saved properly
         $scope.todos.push($scope.newTodo)
         $scope.newTodo = {}
 
-    $scope.archive = ->
+    $scope.delete = ->
         pool = []
         angular.forEach $scope.todos, (todo) ->
-            pool.push todo if not todo.done
+          Todo.delete(todo) if todo.done
+          pool.push todo if not todo.done
         $scope.todos = pool
 ]
