@@ -2,7 +2,6 @@
     <span>{{remaining()}} of {{todos.length}} remaining</span>
     [ <a href="" ng-click="archive()">archive</a> ]
     <ul class="unstyled">
-        {{todos.length}}
         <li ng-repeat="todo in todos">
             <input type="checkbox" ng-model="todo.done">
             <span class="done-{{todo.done}}">{{todo.description}}</span>
@@ -10,7 +9,7 @@
     </ul>
 
     <form class="form-horizontal" ng-submit="addTodo()">
-        <input type="text" ng-model="todoDescription"  size="30"
+        <input type="text" ng-model="newTodo.description"  size="30"
         placeholder="add new todo here">
         <input class="btn btn-primary" type="submit" value="add">
     </form>

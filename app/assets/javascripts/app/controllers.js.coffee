@@ -1,15 +1,8 @@
 ## Aplication Controller
 
 @TodoCtrl = ["$scope", "$log", "Todo", ($scope, $log, Todo) ->
-    #$scope.todos = [
-    #    { 'text': 'todo 1', 'done': true }
-    #    { 'text': 'todo 2', 'done': false }
-    #    { 'text': 'todo 3', 'done': false }
-    #]
 
-    ## FAZER REQUISIÇÃO PARA SHOW!
     $scope.todos = Todo.query()
-    $log.log($scope.todos.length)
 
     $scope.remaining = ->
         count = 0
@@ -18,8 +11,11 @@
         count
 
     $scope.addTodo = ->
-        $scope.todos.push({ 'description': $scope.todoDescription, 'done': false })
-        $scope.todoDescription = ''
+        $scope.newTodo.done = false
+        Todo.save($scope.newTodo)
+        # I need to know if the object was saved properly
+        $scope.todos.push($scope.newTodo)
+        $scope.newTodo = {}
 
     $scope.archive = ->
         pool = []
