@@ -2,6 +2,8 @@
 
 @TodoCtrl = ["$scope", "$log", "Todo", ($scope, $log, Todo) ->
 
+    $log.log('TodoApp up and running...')
+
     $scope.todos = Todo.query()
 
     $scope.remaining = ->
