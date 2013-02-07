@@ -1,4 +1,4 @@
 AngularTodo::Application.routes.draw do
-  root to: 'todos#index'
+  root to: 'todos#dashboard'
   resources :todos
 end

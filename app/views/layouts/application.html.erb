@@ -1,16 +1,19 @@
 <!DOCTYPE html>
-<html ng-app>
+<html lang="en" ng-app="TodoApp">
   <head>
     <title>AngularTodo</title>
     <%= stylesheet_link_tag "application", media: "all" %>
     <%= csrf_meta_tags %>
   </head>
   <body>
-    <h2>TodoApp -> Angular + Rails</h2>
-    {{1+2}}
+
+    <div class="container">
+      <h2>Todos List</h2>
+      <div ng-view></div>
+    </div>
+
     <%= yield %>
-    <script src="/javascripts/angular.min.js"></script>
-    <script src="/javascripts/bootstrap.min.js"></script>
+
     <%= javascript_include_tag "application" %>
   </body>
 </html>
