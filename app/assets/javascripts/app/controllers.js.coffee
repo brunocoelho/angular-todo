@@ -1,6 +1,6 @@
 ## Aplication Controller
 
-@TodoCtrl = ["$scope", "$log", "Todo", ($scope, $log, Todo) ->
+@TodoCtrl = ['$scope', '$log', 'Todo', ($scope, $log, Todo) ->
 
     $log.log('TodoApp up and running...')
 
@@ -26,4 +26,10 @@
           Todo.delete(todo) if todo.done
           pool.push todo if not todo.done
         $scope.todos = pool
+]
+
+@UserCtrl = ['$scope', '$log', ($scope, $log) ->
+
+    # Retrieve users from bd
+    $scope.users = ['Bruno', 'Coelho', 'Santiago']
 ]

@@ -7,21 +7,40 @@
   </head>
   <body>
 
-    <% if user_signed_in? %>
-      <%= link_to 'Sair', destroy_user_session_path, class: 'logout',
-        method: :delete, title: 'Fazer logout', :'data-placement' => "below" %>
-    <% else %>
-      <%= link_to 'Entrar', "/auth/facebook" %>
-    <% end %>
+    <div class="container-fluid">
+      <div class="row-fluid">
+        <div class="span2" ng-controller="UserCtrl">
+          <h2>Users</h2>
 
-    <% if user_signed_in? %>
-      <div class="container">
-        <h2>Todos List</h2>
-        <div ng-view></div>
+          <ul>
+            <% if user_signed_in? %>
+              <li ng-repeat="user in users">
+                {{user}}
+              </li>
+            <% end %>
+          </ul>
+        </div>
+
+        <div class="span9">
+          <h2>Todos List</h2>
+
+          <% if user_signed_in? %>
+            <div ng-view></div>
+          <% end %>
+
+        </div>
+
+        <div class="span1">
+          <% if user_signed_in? %>
+            <%= link_to 'Logout', destroy_user_session_path, class: 'logout',
+              method: :delete, title: 'Fazer logout', :'data-placement' => "below" %>
+          <% else %>
+            <%= link_to 'Login with Facebook', "/auth/facebook" %>
+          <% end %>
+
+        </div>
       </div>
-    <% end %>
-
-    <%= yield %>
+    </div>
 
     <%= javascript_include_tag "application" %>
   </body>
