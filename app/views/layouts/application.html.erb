@@ -15,7 +15,7 @@
           <ul>
             <% if user_signed_in? %>
               <li ng-repeat="user in users">
-                {{user}}
+                {{user.name}}
               </li>
             <% end %>
           </ul>

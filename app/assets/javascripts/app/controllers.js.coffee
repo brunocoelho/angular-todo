@@ -28,8 +28,7 @@
         $scope.todos = pool
 ]
 
-@UserCtrl = ['$scope', '$log', ($scope, $log) ->
+@UserCtrl = ['$scope', '$log', 'User', ($scope, $log, User) ->
 
-    # Retrieve users from bd
-    $scope.users = ['Bruno', 'Coelho', 'Santiago']
+    $scope.users = User.query()
 ]
