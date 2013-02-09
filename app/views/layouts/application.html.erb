@@ -7,12 +7,12 @@
   </head>
   <body>
 
-    <li>
+    <% if user_signed_in? %>
+      <%= link_to 'Sair', destroy_user_session_path, class: 'logout',
+        method: :delete, title: 'Fazer logout', :'data-placement' => "below" %>
+    <% else %>
       <%= link_to 'Entrar', "/auth/facebook" %>
-    </li>
-
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    <% end %>
 
     <% if user_signed_in? %>
       <div class="container">
